@@ -53,16 +53,16 @@ npx skills add dontbesilent2025/dbskill
 
 | Skill | 做什么 |
 |---|---|
-| `/dbs` | 主入口，自动路由到对的工具 |
-| `/dbs-diagnosis` | 商业模式诊断。消解问题，不回答问题 |
-| `/dbs-benchmark` | 对标分析。五重过滤，排除噪音 |
-| `/dbs-content` | 内容创作诊断。五维检测 |
-| `/dbs-hook` | 短视频开头优化。诊断 + 生成方案 |
-| `/dbs-xhs-title` | 小红书标题公式。75 个爆款公式匹配 |
-| `/dbs-ai-check` | AI 写作特征识别。22 条特征扫描，只诊断不改 |
-| `/dbs-slowisfast` | 慢就是快。摩擦建造资产，找到值得慢做的环节 |
-| `/dbs-action` | 执行力诊断。阿德勒框架（原 dbs-unblock） |
-| `/dbs-deconstruct` | 概念拆解。维特根斯坦式审查 |
+| `/dbs` | dontbesilent 商业工具箱主入口。根据你的问题自动路由到最合适的诊断工具 |
+| `/dbs-diagnosis` | dontbesilent 商业模式诊断。两种模式：问诊（消解你的问题）和体检（拆解你的商业模式）|
+| `/dbs-benchmark` | dontbesilent 对标分析。用五重过滤法帮你找到值得模仿的对标，排除一切关于「我」的噪音 |
+| `/dbs-content` | dontbesilent 内容创作诊断。选题通过后，诊断怎么把这个选题做成好内容 |
+| `/dbs-hook` | dontbesilent 短视频开头优化。诊断开头问题 + 生成优化方案 |
+| `/dbs-xhs-title` | 小红书标题公式工具。从 75 个验证过的爆款公式中，帮你挑对的、用对的、理解为什么用这个 |
+| `/dbs-ai-check` | dontbesilent AI 写作特征识别。扫描文案中的 AI 生成痕迹，输出检测报告。默认只诊断不改 |
+| `/dbs-slowisfast` | dontbesilent 慢就是快。帮创业者找到看起来更慢但长期更快的方法，用摩擦建造资产 |
+| `/dbs-action` | dontbesilent 执行力诊断。用阿德勒心理学框架诊断你「知道该做什么但就是不做」的真正原因 |
+| `/dbs-deconstruct` | dontbesilent 概念拆解。用维特根斯坦 + 奥派经济学的方法，把模糊的商业概念拆到原子级别 |
 
 ### Agent 基建
 
