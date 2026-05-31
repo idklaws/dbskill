@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "dontbesilent 商业诊断工具箱 — 从 12,307 条推文中提炼方法论，做成 20 个 Claude Code skill",
-    "version": "2.12.0"
+    "version": "2.12.1"
   },
   "plugins": [
     {
@@ -130,7 +130,7 @@
     },
     {
       "name": "dbs-agent-migration",
-      "description": "Agent 工作台迁移。把任意项目整理成 Claude Code / Codex 双端一致的 Agent 工作台：审计规则文件、识别真源、统一命名与 bridge。",
+      "description": "Agent 工作台迁移。把任意项目整理成 Claude Code / Codex / Grok 三端一致的 Agent 工作台：审计规则文件、识别真源、统一命名与 bridge。",
       "source": "./",
       "strict": false,
       "version": "1.0.0",

@@ -4,21 +4,17 @@ dontbesilent 商业诊断工具箱。从 12,307 条推文中提炼方法论，�
 
 可在 Claude Code、Codex、Cursor、Trae Solo 等任意支持 skill / system prompt 的 Agent 上使用。
 
-**最新更新：v2.12.0**
+**最新更新：v2.12.1**
 
-**v2.12.0 更新**：补齐 `/dbs-decision` 和 `dbs-diagnosis / dbs-benchmark / dbs-goal / dbs-good-question` 的主路径联动；新增一张可直接放进 GitHub README 的 skill 联动图，方便快速理解工具之间的关系。
+**v2.12.1 更新**：`/dbs-agent-migration` 补齐 Grok Build 兼容，迁移目标扩展到 Claude Code / Codex / Grok 三端；同时更新了主入口路由、marketplace 和 release 包说明。
 
-**v2.11.0 改造**：决策系统（`/dbs-decision`）大改 —— 从「业务决策记录」通用化为「个人决策系统」。任何需要长期跟踪的领域（业务、关系、健康、职业、学习、投资……）都能用。四层结构重命名为「**01_事实 / 02_规律 / 03_定格 / 04_待解**」。新增隐私模式（涉及人名 / 机密时强制代号 + git 黑名单提示）、AI 元记录标签（"AI 拒绝继续提供方案"这种自我反思也要落盘）、概念炼出门槛（3 条满足 2 条才能放进 `02_规律/`）。触发词收敛为：`/dbs-decision`、`/决策系统`、`/决策立案`、`/结果回填`、`/状态画像`。
+近期几次更新集中在 4 个方向：
+- Agent 工作台迁移：支持 Grok Build，统一三端迁移语境
+- 决策系统：从业务决策记录扩展成通用个人决策系统
+- 学习与提问：新增 `dbs-learning`、`dbs-good-question`
+- 状态管理：补齐 `dbs-save`、`dbs-restore`、`dbs-report`
 
-**v2.10.0**：决策系统首发（已被 v2.11.0 重构覆盖）。
-
-**v2.9.1 新增**：好问题生成器（`/dbs-good-question`）。把模糊问题改写成 Agent 可推理、可批评、可验证的问题说明书，并判断这个问题能被自动化解决到什么程度。
-
-**v2.9.0 新增**：交互式学习（`/dbs-learning`）。把一个课题拆成连续学习文章，每次生成下一篇前先读取上一篇的「学习反馈」，根据用户的理解程度和兴趣方向调整深度、角度和节奏。学习文件默认放在当前项目的 `学习课题/{课题名}/`，如果当前目录是根目录、桌面、下载等泛目录，则自动放到 `~/Documents/dbskill-learning/{课题名}/`。
-
-**v2.8.0 新增**：目标清晰化（`/dbs-goal`）。帮你把「我想做个人 IP」「我想变得更好」「我想做真正有影响力的内容」这类愿望语法，用维特根斯坦的语言哲学审计成可检查的交付物——三个用法测试 + 空转词识别 + 重写为可指物目标。在 diagnosis 之后、action 之前的一道关。
-
-**v2.7.0 新增**：诊断状态管理三件套（`/dbs-save`、`/dbs-restore`、`/dbs-report`）。诊断不再是单次问诊——这次诊断结束之前 `/dbs-save` 存一份，下次重开对话 `/dbs-restore` 接着走，攒够几次再用 `/dbs-report` 合并成一份可交付的报告。
+更完整的历史变更，见 [GitHub Releases](https://github.com/dontbesilent2025/dbskill/releases)。
 
 **作者**：[X](https://x.com/dontbesilent) · [小红书](https://xhslink.com/m/637xuspR4iI) · [抖音](https://v.douyin.com/pRUDhpBqOrc/)
 
@@ -48,6 +44,15 @@ npx -y skills add dontbesilent2025/dbskill -g --all
 Trae Solo 一个 zip 装一个 skill。从 [GitHub Releases](https://github.com/dontbesilent2025/dbskill/releases) 下载最新的 `dbskill-版本号.zip`，解压后里面是 20 个独立的 skill zip（每个 zip 解压后根级是 `SKILL.md`），逐个拖进 Trae Solo 的「上传技能」窗口即可。
 
 如果想本地构建，运行 `bash tools/build-skills.sh`，产物在 `dist/skills/`。
+
+## 付费答疑群
+
+如果你想加入我的付费答疑群，可以扫码查看：
+
+![付费答疑群二维码](docs/paid-qa-group-qrcode.png)
+
+也可以直接打开这个链接：
+[https://mp.weixin.qq.com/s/V7Dr0-75VYZOLJ6lbT_s0w](https://mp.weixin.qq.com/s/V7Dr0-75VYZOLJ6lbT_s0w)
 
 ## 如何更新 dbskill
 
@@ -142,7 +147,7 @@ npx -y skills add dontbesilent2025/dbskill -g --all
 
 | Skill | 做什么 |
 |---|---|
-| `/dbs-agent-migration` | Agent 工作台迁移。把任意项目整理成 Claude Code / Codex 双端一致的 Agent 工作台：审计规则文件、识别真源、统一命名与 bridge |
+| `/dbs-agent-migration` | Agent 工作台迁移。把任意项目整理成 Claude Code / Codex / Grok 三端一致的 Agent 工作台：审计规则文件、识别真源、统一命名与 bridge |
 
 ### chatroom 系列
 
@@ -240,7 +245,7 @@ Skill 之间会自动推荐下一步。比如：
 - good-question 已经生成清楚的商业问题 → 推荐 diagnosis / benchmark / content
 - 任何阶段如果用户想先听不同视角 → 推荐 chatroom
 - 任何阶段如果用户用了模糊概念 → 推荐 deconstruct
-- 用户明确提到 Claude Code、Codex、`AGENTS.md`、`CLAUDE.md`、skill bridge、工作台迁移、双端统一，或说“我的 Agent 工作台很乱”“帮我统一 Claude 和 Codex” → 推荐 `dbs-agent-migration`
+- 用户明确提到 Claude Code、Codex、Grok、`AGENTS.md`、`CLAUDE.md`、skill bridge、工作台迁移、三端统一，或说“我的 Agent 工作台很乱”“帮我统一 Claude 和 Codex 和 Grok” → 推荐 `dbs-agent-migration`
 - 用户想系统学习一个主题、继续下一篇、根据学习反馈推进课程 → 推荐 `dbs-learning`
 - goal / good-question / diagnosis 已经清楚到要进入具体选择与执行 → 推荐 `dbs-decision`
 - diagnosis / benchmark / content / action / deconstruct / goal 走到有结论的节点 → 推荐 `dbs-save`
